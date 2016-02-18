@@ -1,3 +1,11 @@
+#main-top{
+  height: 90px;
+}
+
+#new-question-form{
+  display: none;
+}
+
 body {
   padding-top: 70px;
   padding-bottom: 30px;
