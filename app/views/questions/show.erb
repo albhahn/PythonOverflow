@@ -1,0 +1,17 @@
+<div class="container top" id="questions-page">
+  <div class="question-container clearfix">
+    <h1><%= @question.title%></h1>
+    <p><%= @question.description %></p>
+    <button type="button" class="up-vote"> Un-laiden Swallow</button>
+    <button type="button" class="down-vote"> Laiden Swallow</button>
+    <form action="/questions/<%= @question.id %>/comment" method="GET">
+      <button type="submit" class="question-comment">Bruce</button>
+    </form>
+    <br>
+    <br>
+    <div class="question-comments">
+      <% @question.comments.each do |comment| %>
+        <%= erb :"partials/_list_comments", :layout => false, :locals => {comment: comment}%>
+    </div><!-- end question-comments  -->
+  </div><!-- end question-container  -->
+</div><!-- end container top  -->

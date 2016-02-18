@@ -2,6 +2,8 @@
 
 <ul class="list-group">
   <% @questions.each do |question| %>
-  <li class="list-group-item"><%=question%></li>
+  <li class="list-group-item">
+    <a href="/questions/<%= question.id %>">
+    <%= question.title %> </a> </li>
   <% end %>
 </ul>
