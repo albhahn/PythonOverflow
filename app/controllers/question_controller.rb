@@ -1,7 +1,12 @@
 get '/questions' do
+  # @questions = Question.all
   @questions = Question.all
-  # @questions = ["Meaning of life?", "Favorite flavor icecream?"]
   erb :'questions/all_questions_view'
+end
+
+get "/questions/:id" do
+  @question = Question.find(params[:id])
+  erb :'/questions/show'
 end
 
 post '/questions' do

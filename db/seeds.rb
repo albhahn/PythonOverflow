@@ -20,7 +20,7 @@ questions_seed = ["Who goes there?", "Where'd you get the coconuts?", "In order 
 questions = []
 
 questions_seed.each do |question|
-  description = Faker::Hipster.paragraphs(2)
+  description = Faker::Hipster.paragraph
   this_question = Question.new(  title: question,
                   description: description )
   this_question.user = users[rand(0..9)]
@@ -53,7 +53,7 @@ comments = []
   question = questions[rand(0..9)]
   user = users[rand(0..9)]
 
-  text = Faker::Hipster.sentences(1)
+  text = Faker::Hipster.sentence(5)
   comment = Comment.new(text: text)
 
   comment.user = user
