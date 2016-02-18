@@ -1,0 +1,7 @@
+<button type="button" id="ask-question" class="btn btn-default">Ask a Question</button>
+
+<ul class="list-group">
+  <% @questions.each do |question| %>
+  <li class="list-group-item"><%=question%></li>
+  <% end %>
+</ul>
