@@ -1,7 +1,27 @@
-<button type="button" id="ask-question" class="btn btn-default">Ask a Question</button>
+  <div class="page-header">
+    <h1>Welcome to Python Overflow!</h1>
+  </div> <!-- end page-header -->
 
-<ul class="list-group">
-  <% @questions.each do |question| %>
-  <li class="list-group-item"><%=question%></li>
-  <% end %>
-</ul>
+<div class = "row" id="main-top">
+  <div class="col-md-12 text-center">
+    <button type="button" id="ask-question" class="btn btn-default">Ask a Question</button>
+    <div id="new-question-form">
+      <%=erb :'questions/_new_question', layout: false %>
+    </div><!-- end row -->
+  </div><!-- end btn-div -->
+</div><!-- end row -->
+
+
+
+
+
+<br>
+<div class = "row">
+  <div class ="coll-md-12">
+    <ul class="list-group">
+      <% @questions.each do |question| %>
+      <li class="list-group-item"><a href="/questions/<%=question.id%>"><%=question.title%></a></li>
+      <% end %>
+    </ul>
+  </div> <!-- end question div -->
+</div><!-- end row -->
