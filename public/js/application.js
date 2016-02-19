@@ -10,8 +10,8 @@ $(document).ready(function () {
   })
   $('#main-top').on("click", "#SPAM", function(e){
     e.preventDefault();
-    var title = $('input[name="title"').val();
-    var description = $('input[name="description"').val();
+    var title = $('input[name="title"]').val();
+    var description = $('input[name="description"]').val();
     var uri = $('form').attr("action");
     $.ajax({url: uri, type: "POST", context: this, data: {title, description}}).done(function(response)
     {
