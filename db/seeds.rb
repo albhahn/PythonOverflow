@@ -34,7 +34,7 @@ answers = []
   question = questions[rand(0..9)]
   user = users[rand(0..9)]
 
-  text = Faker::Hipster.sentences(1)
+  text = Faker::Hipster.sentence(5)
   answer = Answer.new( text: text)
 
   answer.user = user
@@ -70,7 +70,7 @@ end
   answer = answers[rand(0..9)]
   user = users[rand(0..9)]
 
-  text = Faker::Hipster.sentences(1)
+  text = Faker::Hipster.sentence(5)
   comment = Comment.new(text: text)
   comment.user = user
   answer.comments << comment

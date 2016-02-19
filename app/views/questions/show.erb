@@ -4,17 +4,42 @@
     <p><%= @question.description %></p>
     <button type="button" class="up-vote"> Un-laiden Swallow</button>
     <button type="button" class="down-vote"> Laiden Swallow</button>
-    <form action="/questions/<%= @question.id %>/comment" method="GET">
+    <p> <form action="/questions/<%= @question.id %>/comment" method="GET">
       <button type="submit" class="question-comment">Bruce</button>
-    </form>
+    </form> </p>
     <br>
     <br>
     <div class="question-comments">
       <% @question.comments.each do |comment| %>
-        <div class="individual_answer_comments">
+      <div class="individual_answer_comments">
         <%= erb :"partials/_list_comments", :layout => false, :locals => {comment: comment}%>
-        </div><!-- individual_answer_comments close-->
+      </div><!-- individual_answer_comments close-->
     </div><!-- end question-comments  -->
-      <% end %>
+    <% end %>
   </div><!-- end question-container  -->
 </div><!-- end container top  -->
+
+
+<div>
+  <h1>Answers</h1>
+  <% @question.answers.each do |answer| %>
+
+  <%= erb :"partials/_list_answers", :layout => false, :locals => {answer: answer} %>
+
+  <button type="submit" class="up-vote" id=''>Un-laiden Swallow</button>
+
+  <button type="submit" class="down-vote" id=''>Laiden Swallow</button>
+
+  <p> <form action ="/answers/<%=answer.id%>/comment" method = "get">
+    <button type="submit" class="answer-comment" id=" ">Bruce</button>
+  </form> </p>
+
+  <br>
+  <br>
+
+  <% answer.comments.each do |comment| %>
+  <%= erb :"partials/_list_comments", :layout => false, :locals => {comment: comment} %>
+
+  <% end %>
+  <% end %>
+</div>
