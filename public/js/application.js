@@ -43,13 +43,15 @@ $(document).ready(function () {
       $(badge).text(response);
     })
   })
-  $('.commentable').on("click", function(e){
+  $('#questions-page').on("click", '.commentable', function(e){
     e.preventDefault();
     var source = $('#new-comment-template').html();
     var template = Handlebars.compile(source);
     var html = template();
     var showComment = $(this).next();
     var uri = "../" + $(this).attr("id") + "/comments"
+    var parentDiv = $(this).parent().parent()
+    // console.log(div.find('#answer-comments'))
     $(this).fadeOut(700, function(){
     })
     setTimeout(function(){
@@ -58,8 +60,13 @@ $(document).ready(function () {
     $('#questions-page').on("click", "#SPAM", function(e){
       e.preventDefault();
       var text = $('input[name="text"]').val();
-      $.ajax({url: uri, type: "POST", data: {text: text}}).done(function(response){
+      $.ajax({url: uri, type: "POST", context: this, data: {text: text}}).done(function(response){
         console.log(response)
+        if (uri.indexOf("question") > -1){div = '#question-comments'}
+        else if (uri.indexOf("answer") > -1){div = parentDiv.find("#answer-comments")}
+          console.log(div);
+        $(response).hide().prependTo(div).fadeIn("slow");
+        $('input[name="text"]').val("");
       })
     })
   })
