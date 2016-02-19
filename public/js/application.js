@@ -31,4 +31,13 @@ $(document).ready(function () {
       }, 1500)
     })
   })
+  $('.list-group').on("click", '#up-vote', function(e){
+    e.preventDefault();
+    var uri = $(this).parent().parent().find("a").attr("href") + "/votes"
+    $.ajax({url: uri, type: "POST", context: this}).done(function(response){
+      var badge = $(this).parent().parent().find("span.badge");
+      $(badge).css("color", "yellow");
+      $(badge).text(response);
+    })
+  })
 });
