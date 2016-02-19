@@ -105,5 +105,18 @@
     <script src="/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
     <!-- Attaching sinatra js file -->
     <script src="/js/application.js"></script>
+    <script src="/js/handlebars-v4.0.5.js"></script>
+        <script id="new-question-template" type="text/x-handlebars-template">
+          <li class="list-group-item">
+            <div class="btn-group">
+            <button type="button" class="butn btn-default" id="up-vote" aria-label="...">
+              <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+            </button>
+          </div> <!--end button group -->
+          <a href='/questions/{{id}}'>{{title}}</a>
+          <span class="badge">{{length}}</span>
+        </li>
+    </script>
+
   </body>
 </html>
