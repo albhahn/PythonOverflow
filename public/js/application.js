@@ -49,12 +49,18 @@ $(document).ready(function () {
     var template = Handlebars.compile(source);
     var html = template();
     var showComment = $(this).next();
+    var uri = "../" + $(this).attr("id") + "/comments"
     $(this).fadeOut(700, function(){
     })
     setTimeout(function(){
       $(html).hide().prependTo(showComment).fadeIn("slow");
     }, 700)
-
-
+    $('#questions-page').on("click", "#SPAM", function(e){
+      e.preventDefault();
+      var text = $('input[name="text"]').val();
+      $.ajax({url: uri, type: "POST", data: {text: text}}).done(function(response){
+        console.log(response)
+      })
+    })
   })
 });
