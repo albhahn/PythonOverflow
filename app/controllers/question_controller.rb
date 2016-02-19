@@ -17,6 +17,16 @@ post '/questions' do
     question.save
     return question.to_json
   else
-
+    redirect '/questions'
   end
+end
+
+post '/questions/:id/votes' do
+  question = Question.find(params[:id])
+  user = User.find(session[:user_id])
+  vote = Vote.new
+  vote.question = question
+  vote.user = user
+  vote.save
+  return "true"
 end

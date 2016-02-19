@@ -27,7 +27,14 @@
   <div class ="coll-md-12">
     <ul class="list-group">
       <% @questions.each do |question| %>
-      <li class="list-group-item"><a href="/questions/<%=question.id%>"><%=question.title%></a></li>
+        <li class="list-group-item">
+          <div class="btn-group">
+            <button type="button" class="butn btn-default" id="up-vote" aria-label="...">
+              <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+            </button>
+          </div> <!--end button group -->
+          <a href="/questions/<%=question.id%>"><%=question.title%></a>
+        </li>
       <% end %>
     </ul>
   </div> <!-- end question div -->
