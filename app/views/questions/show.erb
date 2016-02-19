@@ -1,45 +1,43 @@
 <div class="container top" id="questions-page">
-  <div class="question-container clearfix">
+  <!-- <div class="question-container clearfix"> -->
+  <div class="jumbotron">
     <h1><%= @question.title%></h1>
+    <hr class="m-y-2">
     <p><%= @question.description %></p>
-    <button type="button" class="up-vote"> Un-laiden Swallow</button>
-    <button type="button" class="down-vote"> Laiden Swallow</button>
-    <p> <form action="/questions/<%= @question.id %>/comment" method="GET">
-      <button type="submit" class="question-comment">Bruce</button>
-    </form> </p>
-    <br>
-    <br>
-    <div class="question-comments">
-      <% @question.comments.each do |comment| %>
-      <div class="individual_answer_comments">
-        <%= erb :"partials/_list_comments", :layout => false, :locals => {comment: comment}%>
-      </div><!-- individual_answer_comments close-->
-    </div><!-- end question-comments  -->
-    <% end %>
-  </div><!-- end question-container  -->
-</div><!-- end container top  -->
+    <div class="row">
+      <div class="col-md-4">
+        <button type="button" class="up-vote"> Un-laiden Swallow</button>
+        <button type="button" class="down-vote"> Laiden Swallow</button><br><br>
+        <button type="submit" class="commentable" id="<%=@question.id%>">Bruce</button><div id="new-comment-area"></div>
+      </div>
+    </div><!--end row div-->
+  </div> <!--end jumbotron -->
 
+    <div class="comments">
+      <% @question.comments.each do |comment| %>
+          <%= erb :"partials/_list_comments", :layout => false, :locals => {comment: comment}%>
+      <% end %>
+    </div><!-- end comments  -->
+  </div><!-- end question-container  -->
 
 <div>
-  <h1>Answers</h1>
-  <% @question.answers.each do |answer| %>
+  <h1 class="text-center">Answers</h1>
+    <% @question.answers.each do |answer| %>
+    <div class="comments">
+      <div class="answers">
+      <%= erb :"partials/_list_answers", :layout => false, :locals => {answer: answer} %>
+      <button type="submit" class="up-vote" id=''>Un-laiden Swallow</button>
+    <button type="submit" class="down-vote" id=''>Laiden Swallow</button><br><br>
+    <button type="submit" class="commentable" id="<%=answer.id%>">Bruce</button><div id="new-comment-area"></div>
+      </div><!--answers-->
 
-  <%= erb :"partials/_list_answers", :layout => false, :locals => {answer: answer} %>
-
-  <button type="submit" class="up-vote" id=''>Un-laiden Swallow</button>
-
-  <button type="submit" class="down-vote" id=''>Laiden Swallow</button>
-
-  <p> <form action ="/answers/<%=answer.id%>/comment" method = "get">
-    <button type="submit" class="answer-comment" id=" ">Bruce</button>
-  </form> </p>
-
-  <br>
-  <br>
 
   <% answer.comments.each do |comment| %>
   <%= erb :"partials/_list_comments", :layout => false, :locals => {comment: comment} %>
 
   <% end %>
+</div><!--comments --></br>
   <% end %>
 </div>
+
+</div><!-- end container top  -->

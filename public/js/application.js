@@ -43,4 +43,18 @@ $(document).ready(function () {
       $(badge).text(response);
     })
   })
+  $('.commentable').on("click", function(e){
+    e.preventDefault();
+    var source = $('#new-comment-template').html();
+    var template = Handlebars.compile(source);
+    var html = template();
+    var showComment = $(this).next();
+    $(this).fadeOut(700, function(){
+    })
+    setTimeout(function(){
+      $(html).hide().prependTo(showComment).fadeIn("slow");
+    }, 700)
+
+
+  })
 });

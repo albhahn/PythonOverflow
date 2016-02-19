@@ -1,3 +1,13 @@
+.comments{
+  border: 1px solid black;
+  border-radius: 1%;
+  padding: 5px;
+}
+.answers{
+  background-color: #d3d3d3;
+  padding: 5px;
+}
+
 #foot{
   position: absolute;
   top: -397px;

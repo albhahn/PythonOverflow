@@ -1,5 +1,2 @@
-<div>
   <p> <%= comment.text %> </p>
-  <p> <%= comment.user.user_name %> </p>
-  <p> <%= comment.created_at %> </p>
-</div>
+  <p> <strong><%= comment.user.user_name %></strong><i>- <%= comment.created_at.httpdate %></i></p>

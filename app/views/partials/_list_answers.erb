@@ -1,5 +1,4 @@
 <div>
 	<p> <%= answer.text %> </p>
-	<p> <%= answer.user.user_name %> </p>
-	<p> <%= answer.created_at %> </p>
+	<p><strong><%= answer.user.user_name %></strong><i><%= answer.created_at.httpdate %> </i></p>
 </div>
