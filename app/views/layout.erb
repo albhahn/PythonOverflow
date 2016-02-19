@@ -116,7 +116,14 @@
           <a href='/questions/{{id}}'>{{title}}</a>
           <span class="badge">{{length}}</span>
         </li>
-    </script>
-
+      </script>
+      <script id="new-comment-template" type="text/x-handlebars-template">
+        <div class ="new-comment-container">
+        <form action='/comments' method='post'>
+          Ni!  <input type="text" name='text' placeholder="Comment!?">
+          <input type="submit" id="SPAM" value="SPAM!">
+        </form>
+        </div> <!-- close new-comment-container -->
+      </script>
   </body>
 </html>
