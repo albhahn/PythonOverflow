@@ -11,7 +11,10 @@ end
 
 post '/questions' do
   if request.xhr?
-    question = Question.create(title: params[:title], description: params[:description], user: session[:user_id])
+    question = Question.new(title: params[:title], description: params[:description])
+    user = User.find(session[:user_id])
+    question.user = user
+    question.save
     return question.to_json
   else
 
