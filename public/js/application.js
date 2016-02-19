@@ -20,7 +20,10 @@ $(document).ready(function () {
       //animation happens here
       })
       setTimeout(function(){
-        $('<li class="list-group-item"><a href="/questions/' + response.id + '">' + response.title +'</a></li>').hide().prependTo('.list-group').fadeIn("slow");
+        var source = $('#new-question-template').html();
+        var template = Handlebars.compile(source);
+        var html = template(response);
+        $(html).hide().prependTo('.list-group').fadeIn("slow");
         $('#foot').animate({top: -397}, 1000, function(){
         //animation happens here
         })
