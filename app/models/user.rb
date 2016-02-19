@@ -7,10 +7,15 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
+  has_many :comments, as: :commentable
+  has_many :answers
+  has_many :votes, as: :voteable
+  has_many :questions
 
   validates :user_name, presence: true
   validates :email, presence: true, uniqueness: true, email: true
   validates :password_hash, presence: true
+
 
   def password
     @password ||= BCrypt::Password.new(password_hash)
