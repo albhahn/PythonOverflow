@@ -4,3 +4,4 @@ class Vote < ActiveRecord::Base
 
   belongs_to :user
 end
+# can access its user, but cannot access whether it belogs to a question or answer

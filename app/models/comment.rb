@@ -4,3 +4,6 @@ class Comment < ActiveRecord::Base
 
   belongs_to :user
 end
+
+
+# can access user, but not it's question/answer
