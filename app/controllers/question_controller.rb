@@ -25,8 +25,8 @@ post '/questions/:id/votes' do
   question = Question.find(params[:id])
   user = User.find(session[:user_id])
   vote = Vote.new
-  vote.question = question
-  vote.user = user
+  vote.user_id = user.id
+  question.votes << vote
   vote.save
-  return "true"
+  return question.votes.length.to_s
 end
