@@ -15,7 +15,8 @@ post '/questions' do
     user = User.find(session[:user_id])
     question.user = user
     question.save
-    return question.to_json
+    to_send = {title: question.title, id: question.id, length: question.votes.length}
+    return to_send.to_json
   else
     redirect '/questions'
   end
