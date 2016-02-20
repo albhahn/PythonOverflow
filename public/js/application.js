@@ -68,6 +68,7 @@ $(document).ready(function () {
     setTimeout(function(){
       $(html).hide().prependTo(showComment).fadeIn("slow");
     }, 700)
+
     $('#questions-page').on("click", "#SPAM", function(e){
       e.preventDefault();
       var text = $('input[name="text"]').val();
