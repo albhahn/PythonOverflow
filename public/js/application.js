@@ -54,7 +54,5 @@ $(document).ready(function () {
     setTimeout(function(){
       $(html).hide().prependTo(showComment).fadeIn("slow");
     }, 700)
-
-
   })
 });
