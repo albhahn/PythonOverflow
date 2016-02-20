@@ -6,6 +6,9 @@ end
 
 get "/questions/:id" do
   @question = Question.find(params[:id])
+  if request.xhr?
+    return uri
+  end
   erb :'/questions/show'
 end
 

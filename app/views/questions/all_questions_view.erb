@@ -1,3 +1,7 @@
+<div id="serpent">
+  <img src="../images/transitionslide.jpg">
+</div>
+
   <div class="page-header">
     <h1>Welcome to Python Overflow!</h1>
   </div> <!-- end page-header -->
@@ -34,11 +38,12 @@
               <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
             </button>
           </div> <!--end button group -->
-          <a href="/questions/<%=question.id%>"><%=question.title%></a>
+          <a id="transition" href="/questions/<%=question.id%>"><%=question.title%></a>
           <span class="badge"><%=question.votes.length%></span>
         </li>
       <% end %>
     </ul>
   </div> <!-- end question div -->
 </div><!-- end row -->
+
 
