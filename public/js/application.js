@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  $(".list-group").on("click", "#transition",function(e){
+    e.preventDefault();
+    var uri= $(this).attr("href");
+    $("#serpent").animate({left: 0}, 3000);
+    setTimeout(function(){
+      $.ajax({url: uri, type: "GET", data: {url: uri}}).done(function(response){
+        window.location.href = response;
+      })
+    }, 3000)
+
+  })
   $('#ask-question').on("click", function(e){
     e.preventDefault();
     $(this).fadeOut(700, function(){
