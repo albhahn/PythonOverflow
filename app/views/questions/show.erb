@@ -5,10 +5,12 @@
     <hr class="m-y-2">
     <p><%= @question.description %></p>
     <div class="row">
-      <div class="col-md-4">
-        <button type="button" class="up-vote"> Un-laiden Swallow</button>
-        <button type="button" class="down-vote"> Laiden Swallow</button><br><br>
-        <button type="submit" class="commentable" id="questions/<%=@question.id%>">Bruce</button><div id="new-comment-area"></div>
+      <div class="col-md-1">
+          <div class="btn-group">
+            <button type="button" class="butn btn-default" id="up-vote" aria-label="..."><span class="glyphicon glyphicon-tower" aria-hidden="true"></span></button>
+          </div></div> <!--end button group and col-->
+      <div class="col-md-11">
+          <button type="submit" class="butn btn-default commentable" id="questions/<%=@question.id%>">Bruce</button><div id="new-comment-area"></div>
       </div>
     </div><!--end row div-->
   </div> <!--end jumbotron -->
@@ -26,12 +28,16 @@
     <div id = "<%=answer.id%>">
       <div class="answer">
       <%= erb :"partials/_list_answers", :layout => false, :locals => {answer: answer} %>
-        <button type="submit" class="up-vote" id=''>Un-laiden Swallow</button>
-        <button type="submit" class="down-vote" id=''>Laiden Swallow</button><br><br>
-        <button type="submit" class="commentable" id="answers/<%=answer.id%>">Bruce</button>
-        <div id="new-comment-area"></div> <!--this is where the new comment form shows up-->
-      </div><!--answers-->
-
+      <div class="row">
+        <div class="col-md-1">
+          <div class="btn-group">
+            <button type="button" class="butn btn-default" id="up-vote" aria-label="..."><span class="glyphicon glyphicon-tower" aria-hidden="true"></span></button>
+          </div></div> <!--end button group and col -->
+        <div class="col-md-11">
+          <button type="submit" class="butn btn-default commentable" id="answers/<%=answer.id%>">Bruce</button><div id="new-comment-area"></div>
+        </div><!--end col-->
+      </div><!--end row-->
+      </div><!--answer-->
       <div id = "answer-comments">
         <% answer.comments.each do |comment| %>
           <%= erb :"partials/_list_comments", :layout => false, :locals => {comment: comment} %>

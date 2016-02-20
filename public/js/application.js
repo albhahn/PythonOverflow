@@ -62,10 +62,12 @@ $(document).ready(function () {
       e.preventDefault();
       var text = $('input[name="text"]').val();
       $.ajax({url: uri, type: "POST", context: this, data: {text: text}}).done(function(response){
-        console.log(response)
         if (uri.indexOf("question") > -1){div = '#question-comments'}
-        else if (uri.indexOf("answer") > -1){div = parentDiv.find("#answer-comments")}
-          console.log(div);
+        else if (uri.indexOf("answer") > -1)
+        {
+          parentDiv = parentDiv.parent().parent()
+          div = parentDiv.find("#answer-comments")
+        }
         $(response).hide().prependTo(div).fadeIn("slow");
         $('input[name="text"]').val("");
       })
